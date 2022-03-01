@@ -9,8 +9,8 @@ Website:https://sp21.datastructur.es/
 
 ### To-Do
 #### Lab
-- [ ] proj 0
-- [ ] proj 1
+- [x] proj 0 : Implemented the main Logic of the Game 2048
+- [ ] proj 1 
 - [ ] proj 2
 - [ ] proj 3
 - [ ] proj 4
