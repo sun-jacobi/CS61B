@@ -8,17 +8,17 @@ Instructor: Josh Hug
 Website:https://sp21.datastructur.es/
 
 ### To-Do
-#### Lab
+#### Proj
 - [x] proj 0 : Implemented the main Logic of the Game 2048
 - [ ] proj 1 
 - [ ] proj 2
 - [ ] proj 3
 - [ ] proj 4
 
-#### Proj 
+#### Lab 
 
-- [ ] lab 1
-- [ ] lab 2
+- [x] lab 1 : Setting up
+- [x] lab 2 : JUnit Tests and Debugging
 - [ ] lab 3
 - [ ] lab 4
 - [ ] lab 5
