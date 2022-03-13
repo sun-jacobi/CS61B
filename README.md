@@ -54,3 +54,12 @@ While methods with the same name but different signature are overloaded.
 
 If X is a superclass of Y, then memory boxes for X may contain Y.
 
+### lec 9
+
+constructors are not inherited, 
+and private members cannot be directly accessed by subclasses.
+
+Note that Java will automatically make a call to the 
+superclass's *no-argument* constructor.
+
+Every class in Java is a descendant of the Object class
