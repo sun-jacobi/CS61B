@@ -21,14 +21,17 @@ public class ArrayDequeTest {
 
     @Test
     public void getTest(){
-        ArrayDeque<Integer> alist = new ArrayDeque<>();
+        ArrayDeque<Integer> alist1 = new ArrayDeque<>();
+        ArrayDeque<Integer> alist2 = new ArrayDeque<>();
         for(int i = 0 ; i < 8 ;i++){
-            alist.addLast(i);
+            alist1.addLast(i);
+            alist2.addFirst(i);
         }
         for(int i = 0; i < 8 ;i++){
-            int item = alist.get(i);
-            assertEquals(i,item);
+            int item1 = alist1.get(i);
+            int item2 = alist2.get(i);
+            assertEquals(i,item1);
+            assertEquals(7-i,item2);
         }
     }
-
 }

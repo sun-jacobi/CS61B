@@ -1,6 +1,8 @@
 package deque;
 
-public class LinkedListDeque<T> {
+import java.util.Iterator;
+
+public class LinkedListDeque<T> implements Iterable<T>, Deque<T> {
     private class Node{
         public Node prev;
         public T item;
@@ -25,6 +27,9 @@ public class LinkedListDeque<T> {
         size = 0;
     }
 
+    public boolean isEmpty(){
+        return (size==0);
+    }
 
     /** Add an item to the front of the deque **/
     public void addFirst(T item){
@@ -52,10 +57,6 @@ public class LinkedListDeque<T> {
         size++;
     }
 
-    /** Returns true if deque is empty, false otherwise. */
-    public boolean isEmpty(){
-        return size == 0;
-    }
 
     /* Prints the items in the deque from first to last, separated by a space.
     Once all the items have been printed, print out a new line
@@ -125,12 +126,30 @@ public class LinkedListDeque<T> {
     }
 
     private T recMethod(int index, Node p){
-        if (index == -1 || p == null){
+        if (index == -1 || p.next == null){
             return p.item;
         }
         else{
             return recMethod(index-1,p.next);
         }
+    }
+
+    private class DequeIterator implements Iterator<T> {
+        private Node pos;
+        public DequeIterator(){
+            pos = sentinel;
+        }
+        public boolean hasNext(){
+            return !pos.equals(sentinel);
+        }
+        public T next(){
+            T returnItem = pos.item;
+            pos = pos.next;
+            return returnItem;
+        }
+    }
+    public Iterator<T> iterator(){
+        return new DequeIterator();
     }
 
 
