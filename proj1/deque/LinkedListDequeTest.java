@@ -197,6 +197,29 @@ public class LinkedListDequeTest {
         }
     }
 
+    @Test
+    /* test the equal method */
+    public void equalTest(){
+        LinkedListDeque<Integer> lld1 = new LinkedListDeque<>();
+        LinkedListDeque<Integer> lld2 = new LinkedListDeque<>();
+        for(int i = 0; i < 10; i++){
+            lld1.addLast(i);
+            lld2.addLast(i);
+        }
+        assertTrue(lld1.equals(lld2));
+    }
+    @Test
+    /* test the equal method */
+    public void polyEqualTest(){
+        LinkedListDeque<String> lld1 = new LinkedListDeque<>();
+        LinkedListDeque<Integer> lld2 = new LinkedListDeque<>();
+        for(int i = 0; i < 10; i++){
+            lld1.addLast("Shit");
+            lld2.addLast(i);
+        }
+        assertFalse(lld1.equals(lld2));
+    }
+
 
 
 }

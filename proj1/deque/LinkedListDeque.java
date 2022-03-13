@@ -27,10 +27,6 @@ public class LinkedListDeque<T> implements Iterable<T>, Deque<T> {
         size = 0;
     }
 
-    public boolean isEmpty(){
-        return (size==0);
-    }
-
     /** Add an item to the front of the deque **/
     public void addFirst(T item){
         Node p = new Node(sentinel,item, sentinel.next);
@@ -137,10 +133,10 @@ public class LinkedListDeque<T> implements Iterable<T>, Deque<T> {
     private class DequeIterator implements Iterator<T> {
         private Node pos;
         public DequeIterator(){
-            pos = sentinel;
+            pos = sentinel.next;
         }
         public boolean hasNext(){
-            return !pos.equals(sentinel);
+            return pos!= sentinel;
         }
         public T next(){
             T returnItem = pos.item;
@@ -150,6 +146,27 @@ public class LinkedListDeque<T> implements Iterable<T>, Deque<T> {
     }
     public Iterator<T> iterator(){
         return new DequeIterator();
+    }
+
+    public boolean equals(Object o){
+        if(!(o instanceof LinkedListDeque)){
+            return false;
+        }
+        if(o == null){
+            return false;
+        }
+        LinkedListDeque<T> obj = (LinkedListDeque<T>) o;
+        if(obj.size()!= this.size()){
+            return false;
+        }
+        Node p = sentinel.next;
+        for(T x: obj){
+            if(!p.item.equals(x)){
+                return false;
+            }
+            p = p.next;
+        }
+        return true;
     }
 
 
