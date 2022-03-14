@@ -67,18 +67,19 @@ public class ArrayDequeTest {
     public void resizeTest(){
         ArrayDeque<Integer> alist1 = new ArrayDeque<>();
         ArrayDeque<Integer> alist2 = new ArrayDeque<>();
-        for(int i = 0; i < 16 ; i++){
+        for(int i = 0; i < 128 ; i++){
             alist1.addFirst(i);
             alist2.addLast(i);
         }
         alist1.printDeque();
         alist2.printDeque();
-        for(int i = 0; i < 16 ; i++){
+        for(int i = 0; i < 128 ; i++){
             alist1.removeFirst();
             alist2.removeLast();
         }
         assertEquals(0,alist1.size());
         assertEquals(0,alist2.size());
+
     }
 
     @Test
@@ -107,11 +108,17 @@ public class ArrayDequeTest {
             alist1.addLast(i);
             alist2.addFirst(i);
         }
-        int num = 0;
+        int num1 = 0;
         for(int x : alist1){
-            assertEquals(num,x);
-            assertEquals(15-num,x);
-            num++;
+            System.out.print(x);
+            assertEquals(num1,x);
+            num1++;
+        }
+        int num2 = 0;
+        for(int x : alist2){
+            System.out.print(x);
+            assertEquals(15 - num2,x);
+            num2++;
         }
     }
 
@@ -126,24 +133,7 @@ public class ArrayDequeTest {
         }
     }
 
-    @Test
-    public void iterator2Test(){
-        ArrayDeque<Integer> alist = new ArrayDeque<>();
-        for(int i = 0 ; i < 8; i++){
-            alist.addFirst(2*i);
-            alist.addLast(2*i+1);
-        }
-        int num = 0;
-        for(int x : alist){
-            if(num <= 7){
-                assertEquals(14-2*num,x);
-            }
-            else {
-                int i = num-7;
-                assertEquals(2*i+1,x);
-            }
-        }
-    }
+
     @Test
     public void equalTest(){
         ArrayDeque<Integer> alist1 = new ArrayDeque<>();
@@ -153,6 +143,15 @@ public class ArrayDequeTest {
             alist2.addFirst(i);
         }
         assertTrue(alist1.equals(alist2));
+    }
+    @Test
+    public void twoDequeTest(){
+        ArrayDeque<Integer> ad = new ArrayDeque<>();
+        LinkedListDeque<Integer> lld = new LinkedListDeque<>();
+        ad.addLast(1);
+        lld.addLast(1);
+        assertTrue(ad.equals(lld));
+
     }
 
 }
