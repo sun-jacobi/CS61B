@@ -14,7 +14,7 @@ public class MaxArrayDequeTest {
     }
     @Test
     public void strTest() {
-        lenComparator c = new lenComparator();
+        LenComparator c = new LenComparator();
         MaxArrayDeque<String> ad = new MaxArrayDeque(c);
         ad.addLast("Tired");
         ad.addLast("newbie");

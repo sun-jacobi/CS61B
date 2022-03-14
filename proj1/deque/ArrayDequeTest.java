@@ -153,5 +153,32 @@ public class ArrayDequeTest {
         assertTrue(ad.equals(lld));
 
     }
+    @Test
+    public void getTest2(){
+        ArrayDeque<Integer> ArrayDeque = new ArrayDeque<>();
+        ArrayDeque.addLast(0);
+        int a0 = ArrayDeque.removeFirst();
+        assertEquals(0,a0);
+        ArrayDeque.addLast(2);
+        ArrayDeque.addLast(3);
+        ArrayDeque.addFirst(4);
+        ArrayDeque.addLast(5);
+        int a5 = ArrayDeque.removeLast();
+        assertEquals(5,a5);
+        ArrayDeque.addLast(7);
+        int a7 = ArrayDeque.get(3);
+        assertEquals(7,a7);
+        ArrayDeque.addLast(10);
+        ArrayDeque.removeFirst();
+        ArrayDeque.addFirst(13);
+        ArrayDeque.addFirst(14);
+        ArrayDeque.addLast(16);
+        ArrayDeque.addLast(17);
+        ArrayDeque.addFirst(18);
+        ArrayDeque.addLast(19);
+        ArrayDeque.addLast(20);
+        int a17 = ArrayDeque.get(8);
+        assertEquals(17,a17);
+    }
 
 }
