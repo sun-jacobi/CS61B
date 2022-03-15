@@ -1,5 +1,6 @@
 package deque;
 
+import edu.princeton.cs.algs4.StdRandom;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -179,6 +180,85 @@ public class ArrayDequeTest {
         ArrayDeque.addLast(20);
         int a17 = ArrayDeque.get(8);
         assertEquals(17,a17);
+    }
+    @Test
+    public void getTest3(){
+        ArrayDeque<Integer> ArrayDeque = new ArrayDeque<>();
+        ArrayDeque.addLast(0);
+        ArrayDeque.addLast(2);
+        ArrayDeque.addFirst(3);
+        ArrayDeque.addLast(4);
+        ArrayDeque.addLast(5);
+        ArrayDeque.addLast(6);
+        ArrayDeque.removeFirst();
+        ArrayDeque.addFirst(8);
+        ArrayDeque.addLast(9);
+        ArrayDeque.removeLast();
+        ArrayDeque.addLast(11);
+        ArrayDeque.removeFirst();
+        ArrayDeque.addLast(14);
+        ArrayDeque.addFirst(16);
+        ArrayDeque.addLast(17);
+        ArrayDeque.addLast(18);
+        int a16 = ArrayDeque.removeFirst();
+        assertEquals(16,a16);
+    }
+    @Test
+    public void trivialtest(){
+        ArrayDeque<Integer> lld1 = new ArrayDeque<>();
+        ArrayDeque<Integer> lld2 = new ArrayDeque<>();
+        assertTrue(lld1.equals(lld2));
+        assertTrue(lld1.equals(lld1));
+    }
+
+
+
+
+    @Test
+    public void randomTest(){
+        ArrayDeque<Integer> ad = new ArrayDeque<Integer>();
+        LinkedListDeque<Integer> lld = new LinkedListDeque<Integer>();
+        int N = 500000000;
+        for (int i = 0; i < N; i += 1) {
+            int operationNumber = StdRandom.uniform(0, 5);
+            if (operationNumber == 0) {
+                // addLast
+                int randVal = StdRandom.uniform(0, 100);
+                ad.addLast(randVal);
+                lld.addLast(randVal);
+                assertEquals(ad.size(),lld.size());
+            } else if (operationNumber == 1) {
+                int randVal = StdRandom.uniform(0, 100);
+                ad.addLast(randVal);
+                lld.addLast(randVal);
+                ad.addFirst(randVal);
+                lld.addFirst(randVal);
+                assertEquals(ad.size(),lld.size());
+            } else if (operationNumber == 2) {
+                // size
+                int aSize = ad.size();
+                int lSize = lld.size();
+                assertEquals(aSize,lSize);
+
+            }
+            else if (operationNumber == 3){
+                if(ad.size()==0 || lld.size() == 0){
+                    continue;
+                }
+                int aLast = ad.removeLast();
+                int lLast = lld.removeLast();
+                assertEquals(aLast,lLast);
+            }
+            else if (operationNumber == 4){
+                if(ad.size()==0 || lld.size() == 0 ){
+                    continue;
+                }
+                int aLast = ad.removeFirst();
+                int lLast = lld.removeFirst();
+                assertEquals(aLast,lLast);
+                assertEquals(ad.size(),lld.size());
+            }
+        }
     }
 
 }

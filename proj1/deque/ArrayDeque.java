@@ -2,7 +2,7 @@ package deque;
 
 import java.util.Iterator;
 
-public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
+public class ArrayDeque<T> implements  Deque<T> {
     private T[] items;
     private int size;
     private int first;
@@ -22,15 +22,27 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
         if (last >= capacity) {
             left =  last - capacity;
             last = left + 1;
-        } else {
+        } else if (last ==  0) {
+            left = l;
+            last = items.length;
+        } else{
             left = last;
         }
-        int right = l - first - 1;
-        int newFirst = capacity - right - 1;
+        int right;
+        int newFirst;
+        if (first >= capacity || capacity >= l) {
+            right = l - first - 1;
+            newFirst = capacity - right - 1;
+        } else {
+            right = capacity - first - 1;
+            newFirst = first;
+        }
+
         System.arraycopy(items, 0, a, 0, left);
         System.arraycopy(items, first + 1, a, newFirst + 1, right);
         items = a;
         first = newFirst;
+
 
     }
 
@@ -138,7 +150,6 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
         }
 
     }
-
     public boolean equals(Object o) {
         if (o == this) {
             return true;
@@ -146,22 +157,21 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
         if (!(o instanceof Deque)) {
             return false;
         }
-        Deque<T> obj = (Deque<T>) o;
+        Deque<T> obj;
+        if (o instanceof  LinkedListDeque){
+            obj = (LinkedListDeque<T>) o;
+        } else {
+            obj = (ArrayDeque<T>) o ;
+        }
         if (obj.size() != this.size()) {
             return false;
         }
-        Iterator<T> it;
-        if (o instanceof LinkedListDeque) {
-            it = ((LinkedListDeque<T>) o).iterator();
-        } else {
-            it = ((ArrayDeque<T>) o).iterator();
-        }
+        Iterator<T> it = obj.iterator();
         for (T x : this) {
-            if (!it.next().equals(x)) {
+            if (x != it.next()) {
                 return false;
             }
         }
         return true;
     }
-
 }
