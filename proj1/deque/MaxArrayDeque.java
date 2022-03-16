@@ -16,7 +16,7 @@ public class MaxArrayDeque<T> extends ArrayDeque<T> {
         }
         T ret = this.get(0);
         for (T x :this) {
-            if (comparator.compare(x, ret) >= 0) {
+            if (c.compare(x, ret) >= 0) {
                 ret = x;
             }
         }
