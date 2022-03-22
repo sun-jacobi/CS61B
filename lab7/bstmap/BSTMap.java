@@ -122,6 +122,18 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
         return val;
 
     }
+    public void printInOrder() {
+        dfs(root);
+    }
+    private void dfs(BSTNode node) {
+        if (node == null) {
+            return;
+        }
+        dfs(node.left);
+        System.out.println(node.key);
+        dfs(node.right);
+    }
+
     private BSTNode remove(K key, BSTNode node) {
         if (node == null) {
             return null;
@@ -146,7 +158,7 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
         }
         return node;
     }
-    public BSTNode min(BSTNode node) {
+    private BSTNode min(BSTNode node) {
         if (node.left == null) {
             return node;
         } else {
