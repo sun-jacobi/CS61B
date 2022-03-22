@@ -10,19 +10,17 @@ Website:https://sp21.datastructur.es/
 ### To-Do
 #### Proj
 - [x] proj 0 : Implemented the main Logic of the Game 2048
-- [ ] proj 1 :  
+- [x] proj 1 : Implemented the deque date structure
 - [ ] proj 2
 - [ ] proj 3
-- [ ] proj 4
 
 #### Lab 
 - [x] lab 1 : Setting up
 - [x] lab 2 : JUnit Tests and Debugging
 - [x] lab 3 : Timing Tests and Randomized Comparison Tests
-- [ ] lab 4
-- [ ] lab 5
-- [ ] lab 6
-- [ ] lab 7
+- [x] lab 4 : Git Exercise
+- [x] lab 6 : Persistence and Command Line
+- [x] lab 7 : Implemented a BSTMap
 - [ ] lab 8
 
 
