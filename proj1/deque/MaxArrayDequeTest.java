@@ -30,8 +30,27 @@ public class MaxArrayDequeTest {
         assertEquals("tired", ad.max(c2));
     }
 
-
-
-
+    @Test
+    public void getTest3(){
+        ArrayDeque<Integer> ArrayDeque = new MaxArrayDeque<>();
+        ArrayDeque.addLast(0);
+        ArrayDeque.addLast(2);
+        ArrayDeque.addFirst(3);
+        ArrayDeque.addLast(4);
+        ArrayDeque.addLast(5);
+        ArrayDeque.addLast(6);
+        ArrayDeque.removeFirst();
+        ArrayDeque.addFirst(8);
+        ArrayDeque.addLast(9);
+        ArrayDeque.removeLast();
+        ArrayDeque.addLast(11);
+        ArrayDeque.removeFirst();
+        ArrayDeque.addLast(14);
+        ArrayDeque.addFirst(16);
+        ArrayDeque.addLast(17);
+        ArrayDeque.addLast(18);
+        int a16 = ArrayDeque.removeFirst();
+        assertEquals(16,a16);
+    }
 }
 
