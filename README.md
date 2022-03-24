@@ -21,7 +21,7 @@ Website:https://sp21.datastructur.es/
 - [x] lab 4 : Git Exercise
 - [x] lab 6 : Persistence and Command Line
 - [x] lab 7 : Implemented a BSTMap
-- [ ] lab 8
+- [x] lab 8 : Implemented a HashMap
 
 
 
